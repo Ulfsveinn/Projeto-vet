@@ -56,6 +56,13 @@ print(vet_df[['idade_na_entrada', 'numero_idade', 'unidade_idade']].head(10))
 
 
 print(vet_df['unidade_idade'].unique())
-vet_df['numero_idade'] = vet_df['numero_idade'].pd.to_numeric(errors='coerce')
-vet_df = vet_df[vet_df['numero_idade'] < 0]
 
+vet_df['numero_idade'] = pd.to_numeric(vet_df['numero_idade'], errors='coerce')
+vet_df = vet_df[vet_df['numero_idade'] < 0]
+print(vet_df['numero_idade'].unique())
+vet_df.info()
+
+
+vet_df['unidade_idade'] = vet_df['unidade_idade'].str.rstrip('s')
+
+print(vet_df['unidade_idade'].unique())
